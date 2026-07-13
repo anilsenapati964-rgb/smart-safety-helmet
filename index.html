@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Safety Helmet</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+  }
+}
+</script>
+
+</head>
+
+<body>
+
+<div id="main-container">
+
+    <!-- LEFT PANEL -->
+
+    <div id="dashboard">
+
+        <div class="header">
+
+            <h1>SMART SAFETY HELMET</h1>
+
+            <div id="connectionStatus">
+                🟢 CONNECTED
+            </div>
+
+        </div>
+
+        <!-- Orientation -->
+
+        <div class="card">
+
+            <h2>Orientation</h2>
+
+            <p>Roll :
+                <span id="roll">0.0</span>°
+            </p>
+
+            <p>Pitch :
+                <span id="pitch">0.0</span>°
+            </p>
+
+            <p>Yaw :
+                <span id="yaw">0.0</span>°
+            </p>
+
+        </div>
+
+        <!-- Worker -->
+
+        <div class="card">
+
+            <h2>Worker Status</h2>
+
+            <p>Helmet :
+                <span id="helmetStatus">✔ Worn</span>
+            </p>
+
+            <p>RFID :
+                <span id="rfidStatus">✔ Authorized</span>
+            </p>
+
+            <p>Battery :
+                <span id="battery">100%</span>
+            </p>
+
+            <p>WiFi :
+                <span id="wifiStatus">Connected</span>
+            </p>
+
+                </div>
+
+        <!-- Gas Sensors -->
+
+        <div class="card">
+
+            <h2>Gas Sensors</h2>
+
+            <p>
+                MQ2 :
+                <span id="mq2Value">0</span>
+            </p>
+
+            <div class="progress">
+
+                <div id="mq2Bar"></div>
+
+            </div>
+
+            <p>
+                MQ135 :
+                <span id="mq135Value">0</span>
+            </p>
+
+            <div class="progress">
+
+                <div id="mq135Bar"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  
+
+    <!-- 3D MODEL -->
+
+    <div id="canvas-container">
+        <button id="sosButton" type="button" aria-pressed="false">SOS Alert</button>
+        <button id="resetViewButton" type="button">↻ Reset View</button>
+    </div>
+
+</div>
+
+<!-- Bottom -->
+
+<div id="bottom-panel">
+
+    <div class="card">
+
+    <h2>Environment</h2>
+
+    
+
+    <p>
+        Air Quality :
+        <span id="air">GOOD</span>
+    </p>
+
+   
+
+    <p>
+        Temperature :
+        <span id="temp">--</span> °C
+    </p>
+
+    <p>
+        Humidity :
+        <span id="hum">--</span> %
+    </p>
+
+    <div class="environment-details">
+        <h3>Monitoring</h3>
+        <div>
+            <span>Gas detection</span>
+            <strong>MQ2 + MQ135</strong>
+        </div>
+        <div>
+            <span>Climate sensing</span>
+            <strong>Temperature + Humidity</strong>
+        </div>
+    </div>
+
+</div>
+<div id="cameraCard">
+
+    <h2>📹 LIVE CAMERA</h2>
+    <div id="liveBadge">
+    ● LIVE
+</div>
+
+    <img
+        id="liveCamera"
+        src="/camera"
+    >
+
+</div>
+
+    <div id="safetyCard">
+
+    <div class="shieldIcon">
+        🛡
+    </div>
+
+    <h2>SAFETY STATUS</h2>
+
+    <div id="safeText">
+        🟢 SAFE
+    </div>
+
+    <div id="safeDesc">
+        System Ready
+    </div>
+
+    <hr>
+
+    <div class="statusItem">
+        ✔ Helmet Worn
+    </div>
+
+    <div class="statusItem">
+        ✔ Air Quality Good
+    </div>
+
+    <div class="statusItem">
+        ✔ Worker Authorized
+    </div>
+
+</div>
+</div>
+
+
+<script type="module" src="app.js"></script>
+<script src="websocket.js"></script>
+</body>
+
+</html>
